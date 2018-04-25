@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 require('env2')('./.env');
 const DB_URL = process.env.DB_URL;
 
