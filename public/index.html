@@ -8,16 +8,16 @@
 </head>
 <body>
     <h1>RESTful API Test</h1> 
-        <form method="post" action="/register" id="user-form">
-            <label for="url-photo">Name</label>
-            <input id="url-photo" name="url" required/></input>
-            <label for="caption-photo">Email</label>
-            <input id="caption-photo" name="review" required/></input>
-            <label for="caption-photo">Password</label>
-            <input id="caption-photo" name="review" type="password" required></input>
-            <button type="submit" id="photo-btn">Publish</button>
+    <h2>Register</h2> 
+        <form method="post" action="/users" id="user-form">
+            <label for="name-user">Name</label>
+            <input id="name-user" name="name" required/></input>
+            <label for="email-user">Email</label>
+            <input id="email-user" name="email" required/></input>
+            <label for="password-user">Password</label>
+            <input id="password-user" name="password" type="password" required></input>
+            <button type="submit" id="photo-btn">Submit</button>
         </form>
-
 
 </body>
 </html>
