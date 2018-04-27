@@ -1,13 +1,24 @@
 <section>
     <h1>RESTful API Test</h1> 
     <h2>Register</h2> 
-        <form method="post" action="/users" id="user-form">
-            <label for="name-user">Name</label>
-            <input id="name-user" name="name" required/></input>
-            <label for="email-user">Email</label>
-            <input id="email-user" name="email" required/></input>
-            <label for="password-user">Password</label>
-            <input id="password-user" name="password" type="password" required></input>
+        <form method="post" action="/users" id="signup-form">
+            <label for="name-signup">Name</label>
+            <input id="name-signup" name="name" required/></input>
+            <label for="email-signup">Email</label>
+            <input id="email-signup" name="email" required/></input>
+            <label for="password-signup">Password</label>
+            <input id="password-signup" name="password" type="password" required></input>
             <button type="submit" id="photo-btn">Submit</button>
+        </form>
+
+    <h2>Login</h2> 
+        <form method="get" action="/login" id="login-form">
+            <label for="name-login">Name</label>
+            <input id="name-login" name="name" required/></input>
+            <label for="email-login">Email</label>
+            <input id="email-login" name="email" required/></input>
+            <label for="password-login">Password</label>
+            <input id="password-login" name="password" type="password" required></input>
+            <button type="button" id="login-btn">Submit</button>
         </form>
 </section>
