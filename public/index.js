@@ -5,16 +5,21 @@ function clientRequest(method, url, body, callback) {
     xhr.addEventListener("load", function() {
       console.log(xhr.status);
       if (xhr.readyState === 4 && xhr.status === 200) {
-        // console.log(xhr.responseText);
-        console.log(xhr);
-        // var response = JSON.parse(xhr.responseText);
-        // callback(response);
+          if (typeof xhr.responseText === 'string'){
+            console.log('responseText: ', xhr.responseText);
+            console.log(xhr);
+            var response = JSON.parse(xhr.responseText);
+            callback(response);
+          }
+        
       } else {
         console.log("XHR error", xhr.status);
       } 
     });
     xhr.open(method, url, true);
-    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");    
+    if (typeof body === 'string'){
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");    
+    }
     xhr.send(body);
   }
   

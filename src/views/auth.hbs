@@ -1,0 +1,25 @@
+<section>
+    <h1>RESTful API Test</h1> 
+    <h2>Register</h2> 
+        <form method="post" action="/users" id="signup-form">
+            <label for="name-signup">Name</label>
+            <input id="name-signup" name="name" required/></input>
+            <label for="email-signup">Email</label>
+            <input id="email-signup" name="email" required/></input>
+            <label for="password-signup">Password</label>
+            <input id="password-signup" name="password" type="password" required></input>
+            <button type="submit" id="photo-btn">Submit</button>
+        </form>
+
+    <h2>Login</h2> 
+        <form method="get" action="/login" id="login-form">
+            <label for="email-login">Email</label>
+            <input id="email-login" name="email" required/></input>
+            <label for="password-login">Password</label>
+            <input id="password-login" name="password" type="password" required></input>
+            <button type="button" id="login-btn">Submit</button>
+        </form>
+
+        {{!-- <button id="js-refresh">Refresh</button> --}}
+
+</section>

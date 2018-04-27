@@ -1,24 +1,36 @@
 const User = require('../../user/User');
 const bcrypt = require('bcrypt');
+const cookieSession = require('cookie-session');
 
 // RETURNS ALL THE USERS IN THE DATABASE
 exports.post = (req, res, next) => {
     console.log('login controller reached');
     console.log('this is req.body: ', req.body);
+    let credentials = req.body;
     
     //get the email and password of the user with the submitted email
-    User.findOne({ 'email': req.body.email }, 'email password')
+    User.findOne({ 'email': credentials.email }, 'email password')
     .then(user => {
+        bcrypt.compare(credentials.password, user.password)
+        .then(result => {
+            if (result == true){
+                console.log('login succesfull')
+                req.session.loggedin = true;
+                // res.status(302);
+                // res.render('home', { active : { home : true }, userNames });
+                res.end(JSON.stringify('/'));
+                // res.redirect('/');
+            } else {
+                console.log('login failed')
+            }
+        })
         console.log('this is result of findOne ', user);
-        res.status(200).send(user);
         
     })
     .catch(err => {
         console.log(err);
     })
-    // bcrypt.compare(req.body.password, hash, function(err, res) {
-    //     // res == true
-    // });
+   
     // User.findOne({ 'email': req.body.email }, 'password')
     // .then(userPassword => {
     // })
