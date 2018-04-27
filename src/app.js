@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
+const controllers = require('./controllers/');
+const path = require('path')
 
-const UserController = require('./user/UserController');
-//the '/' route in UserController.js is now mapped to '/users'
-app.use('/users', UserController);
+app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(controllers);
 
 module.exports = app;
