@@ -3,13 +3,25 @@ const User = require('../../user/User');
 console.log('getallusers.js reached')
 // RETURNS ALL THE USERS IN THE DATABASE
 exports.get = (req, res, next) => {
+    if (req.session.loggedin === true){
+        const allUsers = User.find({});
 
-    console.log('this is GET req: ', req);
-    console.log('this is GET req.body ', req.body);
-
-    User.find({}, (err, users) => {
-        if (err) return res.status(500).send("There was a problem finding the users.");
-        res.status(200).send(users);
+    allUsers.select('name')
+    .then(userNames => {
+        res.status(200); 
+        res.send(userNames);
+        // res.render('home', { active : { auth : true }, userNames });
+        
+               
+    })
+    .catch(err => {
+        res.status(500).send("There was a problem finding the users.");
     });
+    }
+    else {
+        res.status(200);
+        res.end();
+    }
+    
     // next();
 };

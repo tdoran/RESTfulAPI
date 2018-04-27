@@ -1,13 +1,12 @@
 <section>
     <h1>RESTful API Test</h1> 
-    <h2>Register</h2> 
-        <form method="post" action="/users" id="user-form">
-            <label for="name-user">Name</label>
-            <input id="name-user" name="name" required/></input>
-            <label for="email-user">Email</label>
-            <input id="email-user" name="email" required/></input>
-            <label for="password-user">Password</label>
-            <input id="password-user" name="password" type="password" required></input>
-            <button type="submit" id="photo-btn">Submit</button>
-        </form>
+    {{#if userNames}}
+    <ul>
+        {{#each userNames}}
+        <li>
+            <h1>{{this.name}}</h1>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
 </section>
